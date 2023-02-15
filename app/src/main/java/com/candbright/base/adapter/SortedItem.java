@@ -24,6 +24,7 @@ public abstract class SortedItem<Holder extends BaseViewHolder, BindingView exte
             viewBinding = (BindingView) inflate.invoke(null, LayoutInflater.from(parent.getContext()), parent, false);
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
+            return null;
         }
         Holder viewHolder = createViewHolder(viewBinding);
         viewHolder.rootBinding = viewBinding;
