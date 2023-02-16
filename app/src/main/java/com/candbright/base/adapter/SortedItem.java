@@ -16,6 +16,7 @@ public abstract class SortedItem<Holder extends BaseViewHolder, BindingView exte
 
     public Holder bindViewHolder(ViewGroup parent) {
         ParameterizedType type = (ParameterizedType) getClass().getGenericSuperclass();
+        assert type != null;
         Class cls = (Class) type.getActualTypeArguments()[1];
         BindingView viewBinding = null;
         try {
@@ -37,7 +38,7 @@ public abstract class SortedItem<Holder extends BaseViewHolder, BindingView exte
         return sortedIndex;
     }
 
-    public SortedItem setSortedIndex(int index) {
+    public SortedItem<Holder, BindingView> setSortedIndex(int index) {
         this.sortedIndex = index;
         return this;
     }

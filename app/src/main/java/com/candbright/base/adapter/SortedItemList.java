@@ -28,7 +28,7 @@ public class SortedItemList<ItemType extends SortedItem> {
         this.isCustomMode = isCustomMode;
     }
 
-    public List list() {
+    public List<ItemType> list() {
         return data;
     }
 

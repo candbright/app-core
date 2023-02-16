@@ -18,6 +18,7 @@ public abstract class DataItem<Data, Holder extends BaseViewHolder, BindingView 
     @Override
     public Holder bindViewHolder(ViewGroup parent) {
         ParameterizedType type = (ParameterizedType) getClass().getGenericSuperclass();
+        assert type != null;
         Class cls = (Class) type.getActualTypeArguments()[2];
         BindingView viewBinding = null;
         try {
