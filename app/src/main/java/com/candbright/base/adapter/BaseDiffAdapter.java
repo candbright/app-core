@@ -9,18 +9,18 @@ import java.util.List;
 /**
  * created by wyh in 2021/10/19
  */
-public abstract class BaseDiffAdapter extends RecyclerView.Adapter<BaseViewHolder> {
-    protected final List<SortedItem> temp; // 用于保存修改之前的数据源的副本
-    protected final List<SortedItem> data; // 数据源
+public abstract class BaseDiffAdapter<ItemType extends SortedItem> extends RecyclerView.Adapter<BaseViewHolder> {
+    protected final List<ItemType> temp; // 用于保存修改之前的数据源的副本
+    protected final List<ItemType> data; // 数据源
 
-    public BaseDiffAdapter(List<SortedItem> data) {
+    public BaseDiffAdapter(List<ItemType> data) {
         this.data = data;
         temp = new ArrayList<>(data);
     }
 
-    protected abstract boolean areItemsTheSame(SortedItem oldItem, SortedItem newItem);
+    protected abstract boolean areItemsTheSame(ItemType oldItem, ItemType newItem);
 
-    protected abstract boolean areContentsTheSame(SortedItem oldItem, SortedItem newItem);
+    protected abstract boolean areContentsTheSame(ItemType oldItem, ItemType newItem);
 
     @Override
     public int getItemCount() {
